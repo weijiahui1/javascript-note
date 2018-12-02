@@ -1,0 +1,1 @@
+"use strict";function getURLParams(){var t=window.location.search,e=new Object;if(-1!==t.indexOf("?"))for(var s=t.substr(1).split("&"),i=0;i<s.length;i++)e[s[i].split("=")[0]]=unescape(s[i].split("=")[1]);return e}
