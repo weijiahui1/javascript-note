@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" accept="image/*" id="file" />
+    <img src="" alt="" id="img"/>
+    <div id="output"></div>
+    <div id="progress"></div>
+    <script>
+        function createObjecURL (blob) {
+            if (window.URL) {
+                return window.URL.createObjectURL(blob);
+            } else if (window.webkitURL) {
+                return window.webkitURL.createObjectURL(blob);
+            } else {
+                return null;
+            }
+        }
+        var filesList = document.getElementById('file');
+        document.getElementById("file").addEventListener('change', function () {
+            var info = "",
+                output = document.getElementById("output"),
+                progress = document.getElementById("progress"),
+                files = this.files,
+                type = "default",
+                reader = new FileReader(),
+                url = createObjecURL(files[0]);
+                console.log(url);
+                document.getElementById("img").setAttribute("src", url);
+            if (/image/.test(files[0].type)) {
+                reader.readAsDataURL(files[0]);
+                type = "image";
+            } else {
+                reader.readAsDataURL(files[0]);
+                type = "text";
+            }
+            reader.onerror = function () {
+                output.innerHTML = "不能读取文件，错误码是：" + reader.error.code;
+            }
+            reader.onprogress = function (event) {
+                if (event.lengthComputable) {
+                    progress.innerHTML = event.loaded + '/' + event.total;
+                }
+            }
+            reader.onload = function () {
+                var html = "";
+                switch (type) {
+                    case "image":
+                        html += '<img src="' + reader.result + '" alt="">'
+                        break;
+                    case "text":
+                        html = reader.result;
+                        break;
+                }
+                output.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+
+</html>
