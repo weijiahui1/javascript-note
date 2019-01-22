@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>阿里云播放器视频同层播放测试</title>
+    <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.6.0/skins/default/aliplayer-min.css" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html{
+            width: 100%;
+            height: 100%;
+        }
+        .box {
+            width: 100%;
+            height: 400px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div id="videoBox"></div>
+        <div>在安卓手机上，不要用定位哦，要不还是会弹出一层</div>
+    </div>
+    <script charset="utf-8" type="text/javascript" src="https://g.alicdn.com/de/prismplayer/2.6.0/aliplayer-h5-min.js"></script>
+    <script>
+        var player = new Aliplayer({
+            id: 'videoBox',
+            width: '100%',
+            height: '100%',
+            autoplay: false,
+            isLive: false,
+            cover: 'http://liveroom-img.oss-cn-qingdao.aliyuncs.com/logo.png',
+            source: "//player.alicdn.com/resource/player/qupai.mp4",
+            playsinline: true,
+            controlBarVisibility: 'hover',
+            useH5Prism: true,
+            useFlashPrism: false,
+            x5_video_position: 'top',
+            x5_type: 'h5'
+          });
+    </script>
+</body>
+</html>
