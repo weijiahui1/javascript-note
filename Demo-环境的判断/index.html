@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>判断当前环境的函数</title>
+</head>
+
+<body>
+    <script>
+        //1. 判断当前环境是不是微信
+        const isWeiXin = () => {
+            const ua = window.navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i)) {
+                return true;
+            } else { // eslint-disable-line
+                return false;
+            }
+        };
+        // Demo:
+        if (isWeiXin()) {
+            console.log('是微信');
+        } else {
+            console.log('不是微信');
+        }
+        
+        // 2. 判断是window 还是 mac
+        /** * 是否为mac系统（包含iphone手机） * */
+        const isMac = function () {
+            return /macintosh|mac os x/i.test(navigator.userAgent);
+        };
+        /** * 是否为windows系统 * */
+        const isWindows = function () {
+            return /windows|win32/i.test(navigator.userAgent);
+        };
+        // Demo:
+        console.log(isMac());
+        console.log(isWindows());
+
+        //3. 判断浏览器的类型和版本
+        function getBrowserInfo() {
+            var Sys = {};
+            var ua = navigator.userAgent.toLowerCase();
+            var re = /(msie|firefox|chrome|opera|version).*?([\d.]+)/;
+            var m = ua.match(re);
+            Sys.browser = m[1].replace(/version/, "'safari");
+            Sys.ver = m[2];
+            return Sys;
+        }
+        var sys = getBrowserInfo();
+        //sys.browser得到浏览器的类型，sys.ver得到浏览器的版本
+        document.write(sys.browser + "的版本是：" + sys.ver);
+
+        // 4. 判断是PC 还是 移动
+        const IsPC = () => {
+            const userAgentInfo = navigator.userAgent;
+            const Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
+            let flag = true;
+            for (let v = 0; v < Agents.length; v++) {
+                if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            return flag;
+        };
+        if (IsPC()) {
+            console.log('是PC');
+        } else {
+            console.log('是移动');
+        }
+        // 5.移动端判断是安卓还是ios
+        const u = navigator.userAgent;
+        const app = navigator.appVersion;
+        const isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; // g
+        const isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); // ios终端
+        if (isAndroid) {
+            // 这个是安卓操作系统
+            console.log('安卓')
+        }
+        if (isIOS) {
+            // 这个是ios操作系统
+            console.log('ios')
+        }
+
+    </script>
+</body>
+
+</html>
