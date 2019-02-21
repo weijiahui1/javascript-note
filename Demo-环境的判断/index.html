@@ -10,6 +10,8 @@
 
 <body>
     <script>
+        console.log(navigator.userAgent);
+
         //1. 判断当前环境是不是微信
         const isWeiXin = () => {
             const ua = window.navigator.userAgent.toLowerCase();
@@ -25,7 +27,7 @@
         } else {
             console.log('不是微信');
         }
-        
+
         // 2. 判断是window 还是 mac
         /** * 是否为mac系统（包含iphone手机） * */
         const isMac = function () {
@@ -83,6 +85,22 @@
         if (isIOS) {
             // 这个是ios操作系统
             console.log('ios')
+        }
+		// 6.判断是不是ipad
+		function isIpad() {
+            var ua = navigator.userAgent.toLowerCase();
+            if (/ipad/i.test(ua)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        if (isIpad()) {
+            console.log('是ipad')
+        } else {
+            console.log('不是ipad')
         }
 
     </script>
