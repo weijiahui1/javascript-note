@@ -34,22 +34,22 @@
     WebSocket 的用法相当简单。
     下面是一个网页脚本的例子（点击这里看运行结果），基本上一眼就能明白。
     
-```
-var ws = new WebSocket("wss://echo.websocket.org");
+```javascript
+	var ws = new WebSocket("wss://echo.websocket.org");
 
-ws.onopen = function(evt) { 
-  console.log("Connection open ..."); 
-  ws.send("Hello WebSockets!");
-};
+	ws.onopen = function(evt) { 
+	  console.log("Connection open ..."); 
+	  ws.send("Hello WebSockets!");
+	};
 
-ws.onmessage = function(evt) {
-  console.log( "Received Message: " + evt.data);
-  ws.close();
-};
+	ws.onmessage = function(evt) {
+	  console.log( "Received Message: " + evt.data);
+	  ws.close();
+	};
 
-ws.onclose = function(evt) {
-  console.log("Connection closed.");
-};
+	ws.onclose = function(evt) {
+	  console.log("Connection closed.");
+	};
 ```
 ```javascript
 	document.getElementById("myH1").innerHTML="Welcome to my Homepage";//javascript
