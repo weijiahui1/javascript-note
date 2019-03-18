@@ -59,7 +59,7 @@
     var ws = new WebSocket('ws://localhost:8080');
 ```
     执行上面的语句之后，客户端会与服务器进行连接。
-    实例对象的所有属性和方法清单，参见
+    实例对象的所有属性和方法清单，参见 https://developer.mozilla.org/en-US/docs/Web/API/WebSocket
 ##### 4.2 webSocket.readyState
     readyState 属性返回实例对象的当前状态，共有四种：
 
