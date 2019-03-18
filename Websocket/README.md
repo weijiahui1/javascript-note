@@ -51,7 +51,4 @@
 	  console.log("Connection closed.");
 	};
 ```
-```javascript
-	document.getElementById("myH1").innerHTML="Welcome to my Homepage";//javascript
-```
 
