@@ -28,10 +28,12 @@
             if (window.orientation == 90 || window.orientation == -90) {
                 document.getElementById("body").setAttribute("class", 'landscape');
                 orientation = 'landscape';
+                // 横屏
                 return false;
             } else if (window.orientation == 0 || window.orientation == 180) {
                 document.getElementById("body").setAttribute("class", 'portrait');
                 orientation = 'portrait';
+                // 竖屏
                 return false;
             }
         }
