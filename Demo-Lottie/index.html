@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lottie</title>
+    <style>
+        body,
+        html {
+            background-color: #ddd;
+            margin: 0px;
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .grid {
+            display: grid;
+            width: 100%;
+            height: 100%;
+            grid-template-columns: 33% 33% 33%;
+            grid-template-rows: 33% 33% 33%;
+            grid-gap: 0.5%;
+            background-color: #fff;
+        }
+
+        .box {
+            background-color: #444;
+            color: #fff;
+            padding: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid">
+        <div class="box" id="rejection"></div>
+        <div class="box" id="inattentive"></div>
+        <div class="box" id="mnemonics"></div>
+        <div class="box" id="phonological"></div>
+        <div class="box" id="estimate"></div>
+        <div class="box" id="dyslexia"></div>
+        <div class="box" id="articulation"></div>
+        <div class="box" id="incomprehension"></div>
+        <div class="box" id="confusion"></div>
+    </div>
+    <script src="https://labs.nearpod.com/bodymovin/demo/al_boardman/articulation/lottie2.min.js"></script>
+    <script>
+        var animations = ['rejection', 'inattentive', 'mnemonics', 'phonological', 'estimate'
+            , 'dyslexia', 'articulation', 'incomprehension', 'confusion'];
+        var i, len = animations.length;
+        for (i = 0; i < len; i += 1) {
+            var anim;
+            var elem = document.getElementById(animations[i])
+            var animData = {
+                container: elem,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                rendererSettings: {
+                    progressiveLoad: true,
+                    preserveAspectRatio: 'xMidYMid meet'
+                },
+                path: 'https://labs.nearpod.com/bodymovin/demo/al_boardman/articulation/' + animations[i] + '.json'
+            };
+            anim = lottie.loadAnimation(animData);
+            anim.setSubframe(false);
+        }
+    </script>
+</body>
+
+</html>
